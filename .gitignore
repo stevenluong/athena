@@ -1,0 +1,7 @@
+node_modules/
+reactjs/src/bootstrap/
+.DS_Store
+*.swp
+*.swo
+
+
