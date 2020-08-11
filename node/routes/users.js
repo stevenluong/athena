@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const oktaClient = require('../lib/oktaClient');
+const okta = require('@okta/okta-sdk-nodejs');
 var cors = require('cors')
 router.all('*', cors());
 /* GET users listing. */
@@ -25,7 +25,17 @@ router.post('/', (req, res, next) => {
       }
     }
   };
-  oktaClient
+  var token = "";
+  if(req.body.APP!="apollo")
+    throw new Exception("TODO - Other app")
+  else {
+    token = "00_E79okIopZ9SlSid6B-PCgiaU-AUDRQW1MQlIoi4";
+  }
+  const client = new okta.Client({
+    orgUrl: 'https://dev-607424.okta.com',
+    token: token
+  });
+  client
     .createUser(newUser)
     .catch(err => {
       console.log(err.message);
