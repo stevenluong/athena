@@ -3,14 +3,14 @@ services:
     arango:
         image: arangodb:latest
         environment:
-          ARANGO_ROOT_PASSWORD: PASSWORD
+          ARANGO_ROOT_PASSWORD: sae073L&%
           #ports:
           #- 8529:8529
         volumes:
           - arangodb_data_container:/var/lib/arangodb3
           - arangodb_apps_data_container:/var/lib/arangodb3-apps
         restart: always
-        mem_limit: 256m
+        mem_limit: 1g
         networks:
             - nginx_default
               
