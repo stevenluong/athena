@@ -25,15 +25,6 @@ router.post('/', (req, res, next) => {
       }
     }
   };
-  /*
-  var token = "";
-  if(req.body.APP!="apollo")
-    throw new Exception("TODO - Other app")
-  else {
-    token = "00_E79okIopZ9SlSid6B-PCgiaU-AUDRQW1MQlIoi4";
-  }
-  console.log(token);
-  */
   const client = new okta.Client({
     orgUrl: 'https://dev-607424.okta.com',
     token: "00Vjq7M1ZjOoKwf77dR0kiShSWNmfurQBXhdLFzWIk"
@@ -41,13 +32,13 @@ router.post('/', (req, res, next) => {
   client
     .createUser(newUser)
     .catch(err => {
-      console.log(err.message);
+      //console.log(err.message);
       res.status(400);
       res.send(err);
     })
     .then(user => {
       console.log("In")
-      console.log(user)
+      //console.log(user)
       res.status(201)
       res.send(user);
     });

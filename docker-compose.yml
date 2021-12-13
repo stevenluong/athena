@@ -10,7 +10,7 @@ services:
           - arangodb_data_container:/var/lib/arangodb3
           - arangodb_apps_data_container:/var/lib/arangodb3-apps
         restart: always
-        mem_limit: 1g
+        mem_limit: 1G
         networks:
             - nginx_default
               
